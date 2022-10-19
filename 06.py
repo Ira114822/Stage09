@@ -2,13 +2,15 @@
 # через каждый месяц размер вклада увеличивается на P процентов от имеющейся суммы
 
 
-def colculate_months(initial_deposit, p):
-    k = 1
-    s = 0
-    month_plus = initial_deposit * p / 100
+INITIAL_DEPOSIT = 1000
+
+def colculate_month(p):
+    k = 1 # количество месяцев
+    s = 0   # итоговый размер вклада
+    month_plus = INITIAL_DEPOSIT * p / 100
 
     while s < 2000:
-        s = initial_deposit + month_plus * k
+        s = INITIAL_DEPOSIT + month_plus * k
         if s <= 2000 and 0 < p < 25:
             k += 1
         else:
@@ -18,11 +20,10 @@ def colculate_months(initial_deposit, p):
 
 
 def main():
-    initial_deposit = 1000
     p = float(input("Input your interest rate: "))
 
-    month = colculate_months(initial_deposit, p)
-    s = initial_deposit + initial_deposit * (p / 100) * month
+    month = colculate_month(p)
+    s = INITIAL_DEPOSIT + INITIAL_DEPOSIT * (p / 100) * month
 
     msg = f"The size of your contribution will exceed 2000 in {month} months and will be {s}"
 
