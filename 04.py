@@ -3,6 +3,10 @@
 
 
 
+TRUE_RESULT = "descending sequence"
+FALSE_RESULT = "value does not meet conditions"
+
+
 def find_pattern(num):
 
     while num > 0:
@@ -14,13 +18,12 @@ def find_pattern(num):
             break
 
         if n1 < n2:
-            result = "descending sequence"
+            result = TRUE_RESULT
         else:
-            result = "value does not meet conditions"
+            result = FALSE_RESULT
             break
 
         num //= 10
-
 
     return result
 
